@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryston | Portfolio</title>
+
+  <style>
+    /* ==============================
+       EASY EDIT AREA
+       Change colours, fonts, and spacing here
+    ============================== */
+    :root {
+      /* Main colour: warm cream */
+      --bg: #f8f1e5;
+
+      /* Text colours */
+      --text: #2f2a24;
+      --muted: #7c6f63;
+
+      /* Card and border colours */
+      --card: #fffaf2;
+      --border: #eadfce;
+
+      /* Accent colour: muted terracotta, complements cream */
+      --accent: #b86b4b;
+      --accent-dark: #8f4e35;
+
+      --shadow: 0 10px 30px rgba(78, 52, 36, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ==============================
+       NAVIGATION
+    ============================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 241, 229, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .nav-button:hover {
+      background: var(--accent-dark);
+      color: white !important;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: 0.2s ease;
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      text-shadow: 0 0 12px rgba(184, 107, 75, 0.55);
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 70%;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px rgba(184, 107, 75, 0.8);
+    }
+
+    .nav-button.active {
+      color: white;
+      background: var(--accent-dark);
+      box-shadow: 0 0 18px rgba(184, 107, 75, 0.75);
+    }
+
+    .nav-button.active::after {
+      display: none;
+    }
+
+    /* ==============================
+       HERO SECTION
+    ============================== */
+    .hero {
+      padding: 88px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .button.secondary {
+      background: var(--card);
+    }
+
+    .button.secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 22px;
+      background: #f1dfc8;
+    }
+
+    .profile-card .caption {
+      padding: 16px 6px 4px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==============================
+       GENERAL SECTIONS
+    ============================== */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 30px;
+      font-size: 1.02rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ==============================
+       ABOUT SECTION
+    ============================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .about-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .about-card p {
+      color: var(--muted);
+    }
+
+    .resume-preview {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .resume-preview img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      background: #f1dfc8;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-body {
+      padding: 20px;
+    }
+
+    .resume-body h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .resume-body p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* ==============================
+       AWARDS SECTION
+    ============================== */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .award-card {
+      min-height: 180px;
+    }
+
+    .award-year {
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .award-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .award-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==============================
+       HORIZONTAL PICTURE SHOWCASE
+    ============================== */
+    .showcase-wrapper {
+      position: relative;
+    }
+
+    .showcase-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 6px 4px 22px;
+    }
+
+    .showcase-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .showcase-scroll::-webkit-scrollbar-track {
+      background: #eadfce;
+      border-radius: 999px;
+    }
+
+    .showcase-scroll::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .showcase-card {
+      flex: 0 0 min(420px, 86vw);
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .showcase-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      background: #f1dfc8;
+    }
+
+    .showcase-content {
+      padding: 20px;
+    }
+
+    .showcase-content h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .showcase-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+
+    /* ==============================
+       TESTIMONIALS SECTION
+    ============================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      min-height: 260px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .testimonial-card img,
+    .testimonial-card iframe {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      border: 0;
+      background: #f1dfc8;
+    }
+
+    .testimonial-body {
+      padding: 20px;
+    }
+
+    .testimonial-quote {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-person {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .testimonial-person strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .testimonial-person span {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .testimonial-link {
+      display: inline-flex;
+      margin-top: 12px;
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .testimonial-link:hover {
+      color: var(--accent);
+    }
+
+    /* ==============================
+       CLUB AND ACTIVITIES SECTION
+    ============================== */
+    .club-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .club-left {
+      display: grid;
+      gap: 18px;
+   }
+
+    .club-highlight {
+      background: linear-gradient(135deg, var(--card), #f1dfc8);
+    }
+
+    .club-highlight h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .club-highlight p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .club-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .club-tag {
+      background: rgba(184, 107, 75, 0.12);
+      color: var(--accent-dark);
+      border: 1px solid rgba(184, 107, 75, 0.24);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .activities-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .activity-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .activity-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: white;
+      font-weight: 900;
+    }
+
+    .activity-item h3 {
+      font-size: 1.08rem;
+      margin-bottom: 5px;
+    }
+
+    .activity-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==============================
+       CONTACT SECTION
+    ============================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font: inherit;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      font: inherit;
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    /* ==============================
+       MOBILE RESPONSIVE
+    ============================== */
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .club-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .awards-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ==============================
+       NAVIGATION
+       Edit your name and menu labels here
+  ============================== -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Bryston</a>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#awards" class="nav-link">Awards</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#club" class="nav-link">Club</a>
+          <a href="#showcase" class="nav-link">Showcase</a>
+          <a href="#contact" class="nav-link nav-button">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==============================
+         HERO
+         Replace text and profile image
+    ============================== -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Portfolio Website</p>
+          <h1>Hello, I’m Bryston</h1>
+          <p>
+            I create meaningful work across design, technology, projects, and creative problem solving.
+            This portfolio showcases who I am, what I have achieved, and selected works I am proud of.
+          </p>
+          <div class="hero-actions">
+            <a href="#about" class="button primary">About Me</a>
+            <a href="#contact" class="button secondary">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <!-- Replace this image path with your own image, e.g. images/profile.jpg -->
+          <img src="images/profile.jpg" alt="Profile or portfolio image" />
+                  </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         ABOUT ME
+    ============================== -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-intro">
+          I am currently a CyberSecurity Student with interest in Red Teaming! Other than Cybersecurity. I like to upskill myself by solving online TryHackMe boxes and taking certification like OffSec's OSCC (ongoing). Other than tech, I am also involved in Track and Field activities doing Long Jump and Triple jump!
+        </p>
+
+        <div class="about-grid">
+          <div class="card about-card">
+            <h3>Who I Am</h3>
+            <p>
+              I am a motivated learner who enjoys capture the flag competitions (CTF), solving boxes, and improving my skills!
+            </p>
+          </div>
+
+          <div class="card resume-preview">
+            <!-- Put a screenshot/image of your resume here: images/resume-preview.jpg -->
+            <img src="images/resume.jpg" alt="Resume preview" />
+
+            <div class="resume-body">
+              <h3>My Resume</h3>
+              <p>
+                A quick preview of my resume. Open the full version to view it in full.
+              </p>
+
+              <a class="button primary" href="files/resume.pdf" target="_blank">
+                Open Full Resume →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         AWARDS AND ACHIEVEMENTS
+         Copy and paste award-card blocks to add more
+    ============================== -->
+    <section id="awards">
+      <div class="container">
+        <h2 class="section-title">Awards & Achievements</h2>
+        <p class="section-intro">
+          Add your awards, certifications, competition results, school achievements, or project milestones here.
+        </p>
+
+        <div class="awards-grid">
+          <div class="card award-card">
+            <div class="award-year">2022</div>
+            <h3>ITE Community Scholarship</h3>
+            <p>Received the ITE Community Scholarship for outstanding academic performance.</p>
+          </div>
+
+          <div class="card award-card">
+            <div class="award-year">2022</div>
+            <h3>School Advisory Committee Academic Award 2022</h3>
+            <p>Recognized for maintaining excellent academic standing and contributing positively to the school community.</p>
+          </div>
+
+          <div class="card award-card">
+            <div class="award-year">2018</div>
+            <h3>Edusave Good Progress Award</h3>
+            <p>Recognized for showing consistent academic improvement over the year.</p>
+          </div>
+
+          <div class="card award-card">
+            <div class="award-year">2015</div>
+            <h3>Best in Progress Award</h3>
+            <p>Recognized for showing best academic progress over the year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==============================
+         TESTIMONIALS
+         Replace these quotes with real feedback from teachers, coaches, teammates, or project members.
+    ============================== -->
+    <section id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <p class="section-intro">
+          Feedback from people I have worked with, learned from, or collaborated with during projects, school, and activities.
+        </p>
+
+        <div class="testimonials-grid">
+          <div class="card testimonial-card">
+            <!-- Replace with your testimonial image, e.g. images/testimonial-1.jpg -->
+            <img src="images/testimonial-1.jpg" alt="Testimonial from teacher or mentor" />
+            <div class="testimonial-body">
+              <p class="testimonial-quote">
+                Testimonial from Beatty Secondary School and Ministry of Education. If image preview is too small, big image can be accessed
+              </p>
+              <div class="testimonial-person">
+                <strong>Teacher / Mentor Name</strong>
+                <span>Cybersecurity / School Mentor</span>
+              </div>
+               <a class="testimonial-link" href="images/testimonial-1.jpg" target="_blank">
+                Open full image →
+                </a>
+            </div>
+          </div>
+
+          <div class="card testimonial-card">
+            <!-- For a PDF testimonial, put the PDF in a folder called files. Example: files/testimonial-2.pdf -->
+            <iframe src="files/testimonial-2.pdf#toolbar=0" title="PDF testimonial preview"></iframe>
+            <div class="testimonial-body">
+              <p class="testimonial-quote">
+                Testimonial from Supervisor while working under NCS/IRAS.  If the preview unclear, you can open the PDF below.
+              </p>
+              <div class="testimonial-person">
+                <strong>PDF Testimonial</strong>
+                <span>Certificate / Recommendation Letter</span>
+              </div>
+              <a class="testimonial-link" href="files/testimonial-2.pdf" target="_blank">Open PDF testimonial →</a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         CLUB AND ACTIVITIES
+         Edit this section to describe your CCA, club role, activities, and contributions.
+    ============================== -->
+    <section id="club">
+      <div class="container">
+        <h2 class="section-title">Club & Activities</h2>
+        <p class="section-intro">
+          A snapshot of the clubs, activities, and experiences that helped me grow beyond the classroom.
+        </p>
+
+<div class="club-grid">
+  <div class="club-left">
+    <div class="card club-highlight">
+      <h3>RP Athletics</h3>
+      <p>
+        I am involved in Track and Field, focusing on Long Jump and Triple Jump. Through training, I build discipline,
+        consistency, resilience, and the ability to keep improving through feedback.
+      </p>
+
+      <div class="club-tags">
+        <span class="club-tag">Long Jump</span>
+        <span class="club-tag">Triple Jump</span>
+        <span class="club-tag">Discipline</span>
+        <span class="club-tag">Teamwork</span>
+      </div>
+    </div>
+
+    <div class="card club-highlight">
+      <h3>ITE Network Security Technlogy Club</h3>
+      <p>
+        I participate in planning activities such as club bonding events and handover events with juniors.
+        There are also learning sessions that help me improve my technical skills and problem-solving mindset.
+      </p>
+
+      <div class="club-tags">
+        <span class="club-tag">CTF</span>
+        <span class="club-tag">Event Planning</span>
+        <span class="club-tag">Problem Solving</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activities-list">
+
+          <div class="activities-list">
+            <div class="activity-item">
+              <div class="activity-icon">01</div>
+              <div>
+                <h3>Regular Training</h3>
+                <p>
+                  Participated in regular training sessions to improve speed, strength, jumping technique, and overall athletic performance.
+                </p>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon">02</div>
+              <div>
+                <h3>Competitions & Events</h3>
+                <p>
+                  Took part in school or external sports events, like POLITE and SA InterClub, gaining experience in preparation, performance, and handling pressure.
+                </p>
+                <p>
+                <br>
+                    In cybersecurity, I have participated in various CTF competitions, like Sans Spark, LagnCrash and Brainhack, applying my skills in real-world scenarios and learning from each experience.
+                </p>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon">03</div>
+              <div>
+                <h3>Cybersecurity Upskilling</h3>
+                <p>
+                  I like to practise cybersecurity skills through TryHackMe boxes and upskill through certifications like OSCC(ongoing).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         SCROLLABLE PICTURE SHOWCASE
+         Put your images inside an images folder.
+         Example: images/project-1.jpg
+    ============================== -->
+    <section id="showcase">
+      <div class="container">
+        <h2 class="section-title">Showcase</h2>
+        <p class="section-intro">
+          Scroll left to right to view photos, and experiences.
+        </p>
+
+        <div class="showcase-wrapper">
+          <div class="showcase-scroll">
+            <article class="showcase-card">
+              <img src="images/lnc.jpg" alt="Project showcase one" />
+              <div class="showcase-content">
+                <h3>LagnCrash CTF</h3>
+                <p>Reached top 3 in the Polytechnic Category in the LagnCrash CTF!</p>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <img src="images/sanspark.jpg" alt="Project showcase two" />
+              <div class="showcase-content">
+                <h3>Sans Spark CTF</h3>
+                <p>Participated in the Sans Spark CTF and and got top 20 teams while improving my forensic skils!</p>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <img src="images/brainhack.jpg" alt="Project showcase three" />
+              <div class="showcase-content">
+                <h3>Brainhack CTF</h3>
+                <p>Participated in the Brainhack CTF, made it to the finals and improved my problem-solving skills!</p>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <img src="images/tj.jpg" alt="Project showcase four" />
+              <div class="showcase-content">
+                <h3>Triple Jump Training</h3>
+                <p>Practicing and improving my triple jump technique!</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         CONTACT PAGE / SECTION
+         For GitHub Pages, this form opens the visitor's email app.
+    ============================== -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Contact Me</h2>
+          <p class="section-intro">
+            Reach me on the platforms below!
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <span>brystonlim@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <strong>LinkedIn</strong>
+              <span>
+                <a href="https://www.linkedin.com/in/brystonlim281/" target="_blank" class="testimonial-link">
+                  linkedin.com/in/brystonlim281
+                </a>
+              </span>
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              <span>Singapore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Bryston Lim. Built with HTML and CSS. Hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function updateActiveNavLink() {
+      let currentSection = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 130;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${currentSection}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveNavLink);
+    window.addEventListener("load", updateActiveNavLink);
+  </script>
+</body>
+</html>
