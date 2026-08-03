@@ -405,6 +405,48 @@
 
 
     /* ==============================
+       PROJECTS SECTION
+    ============================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tag {
+      background: var(--bg, transparent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+
+    /* ==============================
        TESTIMONIALS SECTION
     ============================== */
     .testimonials-grid {
@@ -659,6 +701,7 @@
           <a href="#testimonials" class="nav-link">Testimonials</a>
           <a href="#club" class="nav-link">Club</a>
           <a href="#showcase" class="nav-link">Showcase</a>
+          <a href="#projects" class="nav-link">Projects</a>
           <a href="#contact" class="nav-link nav-button">Contact</a>
         </div>
       </nav>
@@ -699,7 +742,7 @@
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <p class="section-intro">
-          I am currently a CyberSecurity Student with interest in Red Teaming! Other than Cybersecurity. I like to upskill myself by solving online TryHackMe boxes and taking certification like OffSec's OSCC (ongoing). Other than tech, I am also involved in Track and Field activities doing Long Jump and Triple jump!
+          I am currently a CyberSecurity Student with interest in Red Teaming and AI Security! Other than Cybersecurity. I like to upskill myself by solving online TryHackMe boxes and taking certification like OffSec's OSCC (ongoing). Other than tech, I am also involved in Track and Field activities doing Long Jump and Triple jump!
         </p>
 
         <div class="about-grid">
@@ -953,6 +996,38 @@
     </section>
 
     <!-- ==============================
+         PROJECTS SECTION
+         Add or edit project cards here. Each .project-card can use
+         .project-tags / .project-tag to list tools or skills used.
+    ============================== -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-intro">
+          A closer look at some of the projects I have worked on.
+        </p>
+
+        <div class="projects-grid">
+          <div class="card project-card">
+            <div class="project-meta">Apr 2026 &ndash; Jul 2026</div>
+            <h3>AI-Based Cybersecurity Risk Assessment Chatbot</h3>
+            <p>
+              Final Year Project: Design and development of an AI-based chatbot that assesses
+              cybersecurity risk using the CVSS and DREAD frameworks.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Cybersecurity</span>
+              <span class="project-tag">CVSS</span>
+              <span class="project-tag">DREAD</span>
+              <span class="project-tag">STRIDE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
          CONTACT PAGE / SECTION
          For GitHub Pages, this form opens the visitor's email app.
     ============================== -->
@@ -1001,9 +1076,8 @@
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop - 130;
-        const sectionHeight = section.offsetHeight;
 
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        if (window.scrollY >= sectionTop) {
           currentSection = section.getAttribute("id");
         }
       });
